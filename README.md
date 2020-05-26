@@ -2,6 +2,10 @@
 
 *Group TODO List* is a really useful tool for groups to list all their plans to a public list, which they can access from anywhere in the world and see the same and synchronized todo list. This project mainly uses JavaScript and builds up a user-interactive service through Firebase from Google. Several key terms that I learned recently such as asynchronous functions, OOP in JS, local storage, and databases are used in this project. 
 
+Users can create or delete their TODOs from the database, mark whether the tasks are completed or not, and put TODOs in different categories. 
+
+Try it online: [http://www.gtqifan.tech/backup/Group_TODO_List/](http://www.gtqifan.tech/backup/Group_TODO_List/)
+
 ![Screenshot](https://s1.ax1x.com/2020/05/26/tiKoo4.png) 
 
 ## Getting Started
