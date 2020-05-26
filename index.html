@@ -1,0 +1,107 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <title>TODO List</title>
+</head>
+<body>
+
+<!-- container & title -->
+<div class="container my-4 text-light">
+    <h1 class="my-4 text-center">Group TODO List</h1>
+    <h5 class="my-4 text-center text-muted">supported by Google Firebase | access from anywhere</h5>
+
+    <!-- input name page -->
+    <form class="new-user-form  d-none">
+        <label for="name">Please enter your name in the group: </label>
+        <div class="input-group">
+            <input type="text" id="name" class="form-control" required>
+            <div class="input-group-append">
+                <input type="submit" class="btn" value="OK">
+            </div>
+        </div>
+    </form>
+
+    <div class="main-content">
+        <!-- buttons for categories -->
+        <div class="categories mb-3 text-center">
+            <div class="my-2">Choose a category:</div>
+            <button class="btn" id="general">#general</button>
+            <button class="btn" id="front-end">#front-end</button>
+            <button class="btn" id="database">#database</button>
+            <button class="btn" id="daily">#daily</button>
+            <button class="btn" id="longterm">#long-term</button>
+        </div>
+        <!-- todo list / window -->
+        <div class="todo-window">
+            <ul class="todo-list list-group">
+
+            </ul>
+        </div>
+        <!-- new todo form -->
+        <form class="new-todo my-3">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">New TODO:</div>
+                </div>
+                <input type="text" id="content" class="form-control" required>
+                <div class="input-group-append">
+                    <input type="submit" class="btn" value="add">
+                </div>
+            </div>
+        </form>
+        <!-- update name form -->
+        <form class="new-name my-3">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Update your name:</div>
+                </div>
+                <input type="text" id="name" class="form-control" required>
+                <div class="input-group-append">
+                    <input type="submit" class="btn" value="update">
+                </div>
+            </div>
+            <div class="update-mssg"></div>
+        </form>
+    </div>
+
+</div>
+
+<script src="http://cdn.date-fns.org/v1.9.0/date_fns.min.js"></script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-firestore.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"></script>
+
+<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyBU9obClz3A9sK4iY3IkPBl1dwIqM2j36I",
+        authDomain: "onyx-descent-256800.firebaseapp.com",
+        databaseURL: "https://onyx-descent-256800.firebaseio.com",
+        projectId: "onyx-descent-256800",
+        storageBucket: "onyx-descent-256800.appspot.com",
+        messagingSenderId: "225799520633",
+        appId: "1:225799520633:web:3fb74885872f06bd3d2fa8",
+        measurementId: "G-07D2RE39FZ"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+    const db = firebase.firestore();
+</script>
+
+<!-- import JS files -->
+<script src="scripts/todo.js"></script>
+<script src="scripts/ui.js"></script>
+<script src="scripts/app.js"></script>
+</body>
+</html>
