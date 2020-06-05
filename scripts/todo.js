@@ -25,7 +25,6 @@ class Category {
             .where('category', '==', this.category)
             .orderBy('created_at')
             .onSnapshot(snapshot => {
-                console.log(snapshot.docChanges());
                 snapshot.docChanges().forEach(change => {
                     if (change.type === 'added') {
                         //update the ui
