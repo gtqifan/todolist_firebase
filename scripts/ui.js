@@ -36,7 +36,7 @@ class TodoUI {
         });
     }
 
-    changeStatus(id, status) {
+    changeUIStatus(id, status) {
         const items = document.querySelectorAll('.todo-list li');
         items.forEach(item => {
             if (item.getAttribute('data-id') === id) {

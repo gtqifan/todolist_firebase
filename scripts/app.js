@@ -52,7 +52,7 @@ todoList.addEventListener('click', e => {
     }
     if (e.target.tagName === 'BUTTON') {
         const id = e.target.parentElement.getAttribute('data-id');
-        category.changeStatus(id, (id, status) => todoUI.changeStatus(id, status));
+        category.changeFinishedStatus(id);
     }
 });
 

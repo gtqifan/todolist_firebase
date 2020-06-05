@@ -25,10 +25,15 @@ class Category {
             .where('category', '==', this.category)
             .orderBy('created_at')
             .onSnapshot(snapshot => {
+                console.log(snapshot.docChanges());
                 snapshot.docChanges().forEach(change => {
                     if (change.type === 'added') {
                         //update the ui
                         callback(change.doc.data(), change.doc.id);
+                    } else if (change.type === 'removed') {
+                        this.deleteTodos(change.doc.id, (id) => todoUI.remove(id));
+                    } else if (change.type === 'modified') {
+                        this.changeStatus(change.doc.id, (id, status) => todoUI.changeUIStatus(id, status));
                     }
                 });
             });
@@ -53,16 +58,23 @@ class Category {
             .catch(err => console.log(err));
     }
 
-    changeStatus(id, callback) {
+    changeFinishedStatus(id) {
         var currStatus;
         this.todolist.doc(id).get()
             .then((doc) => {
                 currStatus = doc.data().finished;
                 this.todolist.doc(id).update({
                     finished: !currStatus
-                }).then(() => {
-                    callback(id, !currStatus);
-                });
+                })
+            }).catch(err => console.log(err));
+    }
+
+    changeStatus(id, callback) {
+        var currStatus;
+        this.todolist.doc(id).get()
+            .then((doc) => {
+                currStatus = doc.data().finished;
+                callback(id, currStatus);
             }).catch(err => console.log(err));
     }
 }
